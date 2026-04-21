@@ -265,9 +265,9 @@ export default function ChatPage() {
                  <span className="material-symbols-outlined text-[14px] text-tertiary">lightbulb</span> Sugerir Resposta
                </button>
             ) : (
-              suggestions.map((sug, i) => (
-                <button key={i} onClick={() => handleSend(sug)} className="whitespace-nowrap bg-tertiary-container text-on-tertiary-container px-4 py-2 rounded-xl text-sm font-semibold shadow-sm hover:brightness-95 transition-all text-left truncate max-w-[200px]">
-                  {sug}
+              suggestions.map((sug: any, i) => (
+                <button key={i} onClick={() => handleSend(sug.german)} className="whitespace-nowrap bg-tertiary-container text-on-tertiary-container px-4 py-2 rounded-xl text-sm font-semibold shadow-sm hover:brightness-95 transition-all text-left truncate max-w-[200px]">
+                  {sug.german}
                 </button>
               ))
             )}

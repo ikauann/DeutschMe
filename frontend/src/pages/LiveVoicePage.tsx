@@ -10,6 +10,7 @@ export default function LiveVoicePage() {
   const [lastAssistantText, setLastAssistantText] = useState('Hallo! Lass uns anfangen.')
   const [lastTranslation, setLastTranslation] = useState('Olá! Vamos começar.')
   const [micLang, setMicLang] = useState<'de-DE' | 'pt-BR'>('de-DE')
+  const [suggestions, setSuggestions] = useState<Array<{german: string, portuguese: string}>>([])
   
   const recognitionRef = useRef<any>(null)
   const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -116,6 +117,16 @@ export default function LiveVoicePage() {
     }
   }
 
+  const loadVoiceSuggestions = async () => {
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/chat/suggestions?scenario=${encodeURIComponent(activeScenario)}&level=${level}`)
+      const data = await response.json()
+      setSuggestions(data.suggestions || [])
+    } catch(e) {
+      console.error(e)
+    }
+  }
+
   const getOrbStateClasses = () => {
     switch (liveState) {
         case 'LISTENING':
@@ -167,12 +178,30 @@ export default function LiveVoicePage() {
         <div className="flex-1 w-full flex items-center justify-center relative">
             <div className={`absolute w-full h-full opacity-20 -z-10 transition-colors duration-1000 ${liveState === 'LISTENING' ? 'bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/50 to-transparent' : liveState === 'SPEAKING' ? 'bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-container to-transparent' : ''}`} />
             
-            <div className={`w-48 h-48 rounded-full transition-all duration-700 ease-out flex items-center justify-center ${getOrbStateClasses()}`}>
+            <div className={`w-48 h-48 rounded-full transition-all duration-700 ease-out flex items-center justify-center relative ${getOrbStateClasses()}`}>
                 <div className="w-32 h-32 rounded-full absolute bg-white/10 mix-blend-overlay"></div>
                 {liveState === 'SPEAKING' && (
-                     <span className="material-symbols-outlined text-6xl text-white/80 animate-pulse">graphic_eq</span>
+                     <span className="material-symbols-outlined text-6xl text-white/80 animate-pulse relative z-10">graphic_eq</span>
                 )}
             </div>
+
+            {/* Dicas Flutuantes */}
+            {liveState === 'LISTENING' && (
+              <div className="absolute left-6 top-1/2 -translate-y-1/2 flex flex-col gap-3 max-w-[250px] z-20">
+                 {suggestions.length === 0 ? (
+                    <button onClick={loadVoiceSuggestions} className="bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-2xl px-4 py-3 font-semibold text-sm flex items-center gap-2 border border-white/5 transition-colors">
+                      <span className="material-symbols-outlined text-tertiary">lightbulb</span> Obter Ideias
+                    </button>
+                 ) : (
+                    suggestions.map((sug, i) => (
+                      <button key={i} onClick={() => { setInterimText(sug.german); setTimeout(() => sendPhrase(sug.german), 500); }} className="bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-2xl px-4 py-3 text-left border border-white/5 transition-all text-sm group hover:scale-[1.02]">
+                         <p className="font-bold text-primary-fixed">{sug.german}</p>
+                         <p className="text-secondary opacity-70 text-xs italic mt-1">{sug.portuguese}</p>
+                      </button>
+                    ))
+                 )}
+              </div>
+            )}
         </div>
 
         {/* Text Area (Real-time subtitles) */}
