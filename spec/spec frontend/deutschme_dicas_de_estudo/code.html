@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#005dac",
+                    "surface-bright": "#f7f9fc",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#414752",
+                    "on-secondary-fixed": "#001c3a",
+                    "surface": "#f7f9fc",
+                    "outline": "#717783",
+                    "surface-container": "#eceef1",
+                    "outline-variant": "#c1c6d4",
+                    "on-tertiary-fixed-variant": "#733600",
+                    "on-primary-fixed-variant": "#004786",
+                    "on-tertiary-fixed": "#311300",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f2f4f7",
+                    "surface-tint": "#005faf",
+                    "surface-container-high": "#e6e8eb",
+                    "on-tertiary-container": "#fffeff",
+                    "inverse-on-surface": "#eff1f4",
+                    "surface-dim": "#d8dadd",
+                    "on-surface": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdbc7",
+                    "secondary-fixed": "#d4e3ff",
+                    "on-secondary-container": "#425b7f",
+                    "primary-container": "#1976d2",
+                    "secondary": "#475f84",
+                    "primary-fixed-dim": "#a5c8ff",
+                    "surface-container-highest": "#e0e3e6",
+                    "tertiary": "#944700",
+                    "background": "#f7f9fc",
+                    "on-secondary-fixed-variant": "#2f486a",
+                    "tertiary-container": "#ba5b00",
+                    "on-background": "#191c1e",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#a5c8ff",
+                    "secondary-fixed-dim": "#afc8f1",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#001c3a",
+                    "primary-fixed": "#d4e3ff",
+                    "tertiary-fixed-dim": "#ffb688",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#bad3fd",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#fffdff",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e0e3e6",
+                    "inverse-surface": "#2d3133"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter", "sans-serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .glass-effect {
+        backdrop-filter: blur(20px);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-md">
+<div class="flex items-center justify-between px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-700 dark:text-blue-400" data-icon="menu_book">menu_book</span>
+<span class="text-blue-700 dark:text-blue-400 font-extrabold tracking-tighter text-lg">DeutschMe</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-slate-200/50 transition-colors">
+<span class="material-symbols-outlined text-slate-600" data-icon="search">search</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-slate-200/50 transition-colors">
+<span class="material-symbols-outlined text-slate-600" data-icon="notifications">notifications</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-5xl mx-auto space-y-12">
+<!-- Hero Section -->
+<section class="space-y-2">
+<h1 class="text-3xl font-extrabold tracking-tight text-on-surface">Dicas de Estudo</h1>
+<p class="text-on-surface-variant max-w-xl body-md">Aprimore seu alemão com orientações precisas de gramática e vocabulário técnico selecionado para o seu dia a dia.</p>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Grammar of the Day: Main Feature -->
+<div class="md:col-span-2 bg-surface-container-lowest rounded-xl p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[120px]" data-icon="translate">translate</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-6">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[11px] font-bold uppercase tracking-widest rounded-full">Gramática do Dia</span>
+<span class="text-on-surface-variant text-sm">• Nível B1</span>
+</div>
+<h2 class="text-2xl font-bold text-on-surface mb-4">Akkusativ vs Dativ</h2>
+<p class="text-on-surface-variant mb-6 leading-relaxed">
+                        A confusão clássica! Use o <strong class="text-primary">Akkusativ</strong> para indicar movimento de um ponto A para um ponto B (Wohin?). Use o <strong class="text-tertiary">Dativ</strong> para indicar localização ou posição estática (Wo?).
+                    </p>
+<div class="space-y-4 mb-8">
+<div class="bg-surface-container-low p-4 rounded-lg flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="arrow_forward">arrow_forward</span>
+<div>
+<p class="font-bold text-on-surface">Ich hänge das Bild an die Wand.</p>
+<p class="text-sm text-on-surface-variant">Akkusativ (Movimento: Eu penduro o quadro na parede).</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary mt-1" data-icon="location_on">location_on</span>
+<div>
+<p class="font-bold text-on-surface">Das Bild hängt an der Wand.</p>
+<p class="text-sm text-on-surface-variant">Dativ (Estado: O quadro está pendurado na parede).</p>
+</div>
+</div>
+</div>
+</div>
+<button class="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all duration-200">
+<span>Aprender Mais</span>
+<span class="material-symbols-outlined text-sm" data-icon="east">east</span>
+</button>
+</div>
+<!-- Side Card: Quick Tip -->
+<div class="bg-primary bg-gradient-to-br from-primary to-primary-container rounded-xl p-8 text-on-primary flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined mb-6 text-4xl" data-icon="bolt" data-weight="fill">bolt</span>
+<h3 class="text-xl font-bold mb-3">Dica Rápida</h3>
+<p class="text-primary-fixed leading-relaxed text-sm">
+                        "Se você não sabe o gênero de um substantivo terminado em <strong class="text-white">-ung</strong>, pode apostar que ele é feminino (die). 99% de acerto!"
+                    </p>
+</div>
+<div class="mt-8 pt-6 border-t border-white/10">
+<button class="w-full py-3 bg-surface-container-lowest text-primary font-bold rounded-lg hover:bg-opacity-90 transition-all">
+                        Ver Mais Regras
+                    </button>
+</div>
+</div>
+</div>
+<!-- Vocabulary Section -->
+<section class="space-y-8">
+<div class="flex items-end justify-between">
+<div>
+<h2 class="text-2xl font-bold text-on-surface">Vocabulário Contextual</h2>
+<p class="text-on-surface-variant">Termos específicos para sua carreira e rotina.</p>
+</div>
+<button class="text-primary font-semibold text-sm flex items-center gap-1">
+                    Ver todos <span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1: Data Engineering -->
+<div class="bg-surface-container-lowest rounded-xl p-6 transition-transform hover:-translate-y-1 duration-300">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="database">database</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface mb-2">Data Engineering</h3>
+<p class="text-sm text-on-surface-variant mb-6">Termos técnicos como "Datenspeicherung" e "Pipeline-Verarbeitung" essenciais para o trabalho.</p>
+<div class="flex items-center justify-between pt-4 border-t border-surface-container">
+<span class="text-[11px] font-bold text-outline uppercase tracking-wider">12 Cartões</span>
+<button class="text-primary text-sm font-bold flex items-center" data-icon="play_circle">
+<span class="material-symbols-outlined mr-1" data-icon="play_circle">play_circle</span> Estudar
+                        </button>
+</div>
+</div>
+<!-- Card 2: Daily Life -->
+<div class="bg-surface-container-lowest rounded-xl p-6 transition-transform hover:-translate-y-1 duration-300">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="shopping_basket">shopping_basket</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface mb-2">Daily Life</h3>
+<p class="text-sm text-on-surface-variant mb-6">Como se comunicar no "Supermarkt" e "Postamt" sem tropeçar nos artigos e plurais.</p>
+<div class="flex items-center justify-between pt-4 border-t border-surface-container">
+<span class="text-[11px] font-bold text-outline uppercase tracking-wider">25 Cartões</span>
+<button class="text-primary text-sm font-bold flex items-center" data-icon="play_circle">
+<span class="material-symbols-outlined mr-1" data-icon="play_circle">play_circle</span> Estudar
+                        </button>
+</div>
+</div>
+<!-- Card 3: Business Meetings -->
+<div class="bg-surface-container-lowest rounded-xl p-6 transition-transform hover:-translate-y-1 duration-300">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="groups">groups</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface mb-2">Reuniões</h3>
+<p class="text-sm text-on-surface-variant mb-6">Phrasal verbs e expressões formais para apresentações e negociações de alto nível.</p>
+<div class="flex items-center justify-between pt-4 border-t border-surface-container">
+<span class="text-[11px] font-bold text-outline uppercase tracking-wider">18 Cartões</span>
+<button class="text-primary text-sm font-bold flex items-center" data-icon="play_circle">
+<span class="material-symbols-outlined mr-1" data-icon="play_circle">play_circle</span> Estudar
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Community Section -->
+<section class="bg-surface-container-low rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="flex-1">
+<h2 class="text-xl font-bold text-on-surface mb-2">Quer receber dicas semanais?</h2>
+<p class="text-on-surface-variant">Junte-se a 5.000+ estudantes que recebem as melhores dicas de alemão direto no e-mail.</p>
+</div>
+<div class="flex w-full md:w-auto gap-2">
+<input class="flex-1 md:w-64 bg-surface-container-lowest border-none rounded-lg focus:ring-2 focus:ring-primary/20 text-sm py-3 px-4 outline-none" placeholder="Seu melhor e-mail" type="email"/>
+<button class="px-6 py-3 bg-primary text-on-primary font-bold rounded-lg hover:shadow-lg transition-all active:scale-95">Inscrever</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pt-3 pb-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0_-4px_24px_rgba(0,93,172,0.06)] rounded-t-3xl">
+<!-- active state: Lernen -->
+<a class="flex flex-col items-center justify-center text-blue-700 dark:text-blue-400 relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-blue-700 after:rounded-full transition-transform duration-150 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="school" data-weight="fill">school</span>
+<span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Lernen</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 opacity-70 hover:opacity-100 transition-opacity duration-150 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Chat</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 opacity-70 hover:opacity-100 transition-opacity duration-150 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Fortschritt</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 opacity-70 hover:opacity-100 transition-opacity duration-150 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Profil</span>
+</a>
+</nav>
+</body></html>
